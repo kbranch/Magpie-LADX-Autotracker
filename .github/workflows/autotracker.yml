@@ -17,7 +17,7 @@ jobs:
         with:
           submodules: recursive
       - id: get-version
-        run: git describe --exact-match --tags >> "$GITHUB_OUTPUT"
+        run: echo `git describe --exact-match --tags` >> "$GITHUB_OUTPUT"
       - uses: ncipollo/release-action@v1.16.0
         id: create-release
         with:
