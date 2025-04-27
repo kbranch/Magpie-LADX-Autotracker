@@ -5,10 +5,10 @@ block_cipher = None
 
 
 a = Analysis(
-    ['autotracking/autotracker.py'],
+    ['autotracker.py'],
     pathex=[],
     binaries=[],
-    datas=[('./LADXR/', 'LADXR/'), ('./autotracking/autotracker-version', '.'), ('./pyevilemu/evilemu/', 'evilemu/')],
+    datas=[('./LADXR/', 'LADXR/'), ('./autotracker-version', '.'), ('./pyevilemu/evilemu/', 'evilemu/')],
     hiddenimports=[],
     hookspath=[],
     runtime_hooks=[],
