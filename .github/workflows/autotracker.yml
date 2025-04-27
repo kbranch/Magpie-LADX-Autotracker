@@ -3,7 +3,7 @@ name: Build autotracker
 on:
   push:
     tags:
-      - autotracker-*
+      - '**'
 
 jobs:
   parse-version:
