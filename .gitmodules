@@ -1,0 +1,6 @@
+[submodule "LADXR"]
+	path = LADXR
+	url = git@github.com:kbranch/LADXR.git
+[submodule "pyevilemu"]
+	path = pyevilemu
+	url = git@github.com:kbranch/pyevilemu.git
