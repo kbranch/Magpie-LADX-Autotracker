@@ -26,6 +26,7 @@ jobs:
           name: Autotracker ${{ steps.version.outputs.version }}
       - name: Remove LADXR gfx
         run: rm -rf LADXR/gfx/*.txt
+      - run: mv pyevilemu/evilemu . ; rm -rf pyevilemu
       - name: Upload autotracker
         uses: actions/upload-artifact@v4
         with:
