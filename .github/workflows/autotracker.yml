@@ -32,6 +32,7 @@ jobs:
           name: autotracker-source
           path: '.'
           include-hidden-files: true
+      - run: zip -r autotracker-source.zip .
       - name: Upload to release
         env:
           GH_TOKEN: ${{ github.token }}
