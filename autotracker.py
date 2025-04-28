@@ -89,7 +89,8 @@ def getRemoteVersion():
         headers = {'User-Agent': 'Magpie'}
         request = requests.get('https://magpietracker.us/api/version', headers=headers)
         return json.loads(request.text)
-    except:
+    except Exception as e:
+        print(f'Error checking for updates: {e}')
         return None
 
 def getVersion():
