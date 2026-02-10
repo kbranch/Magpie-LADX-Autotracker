@@ -6,8 +6,11 @@ Windows, Linux and Mac binaries are available on GitHub as releases, or from dow
 
 No setup should be required beyond enabling autotracking in Magpie - just start the autotracker and a compatible emulator.
 
-### Linux (and Mac?)
-Autotracking should work on any vaguely recent version of Linux that can also run a [compatible emulator](#emulator-compatibility). Mac support is not well tested but probably similar.
+### Linux
+Autotracking should work on any vaguely recent version of Linux that can also run a [compatible emulator](#emulator-compatibility).
+
+### Mac
+@dinonautdad on Discord has put together a full [Mac setup guide](https://github.com/kbranch/Magpie-LADX-Autotracker/blob/main/LADXR_AutoTracking_macOS.pdf) - thanks!
 
 ### From Source
 Setup is similar to the local version of Magpie:
