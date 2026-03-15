@@ -41,7 +41,9 @@ def readItems(gb, state, extraItems):
             item = state.itemDict[consts.inventoryItemIds[value]]
             extra = extraItems[item.id] if item.id in extraItems else 0
             item.set(1, extra)
-            missingItems.remove(item)
+
+            if item in missingItems:
+                missingItems.remove(item)
     
     for item in missingItems:
         extra = extraItems[item.id] if item.id in extraItems else 0
