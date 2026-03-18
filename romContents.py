@@ -39,7 +39,7 @@ def getSpoilerLog(romData):
     logJson = {}
 
     try:
-        log = SpoilerLog(settings, args, [rom])
+        log = SpoilerLog(settings, args, rom)
         log.outputJson(filename)
         logJson = json.loads(open(filename, 'r').read())
         os.remove(filename)
@@ -79,15 +79,19 @@ gfxDict = {
     "6c3551c787354b971a6d2a505c5647fce7623d00": "Martha",
     "a879017650d8f1cb17c7b9f940883b9e8aecab8d": "Matty",
     "558b53286213d607a517864fefab0b491426c253": "Meme",
+    "71e5b7cb1584df8413ce076a3f29225fa2be642e": "MMLink",
+    "6d95112027515f80de9c1f169cb4a4bf5e86d4cd": "Moblin",
     "b4b1f305eef4c9979495ce71e69c923dfe2f1cf8": "NESLink",
     "9afa1326949285418c69309cf6436d9693354985": "Ninten",
+    "1f6f49d15e6e5a6dc869847407d46e2ae3eba54c": "Noelle",
     "316a82a49851a3c3cdc459d68f2a82742c6fd664": "Ralsei",
     "938a4fabaa34eb8323b2912b7dda78d88a0674b2": "Richard",
     "44883f23bf4e80f6f7b0e56919892e85d59fff49": "Ricky",
     "e8568e8cd6ba62260bb6224be4a8b0676ee46471": "Rooster",
     "9f47a74c64a715bacabd66afab89f416d15c1237": "Rosa",
+    "1b9bf257bce7b72b6c729b6d389b76656f7dbf86": "Saria",
     "2622f91352cf85e86c325a906e9d690a8363748b": "Sig",
-    "424b05214e41aaab0aede15296870f3b84d21b85": "SpongeBob",
+    "ff9f4e384f87759cdaa5e40dee08aacb3b9718dc": "SpongeBob",
     "71087f57d498acbf51c3831e8c9949d5d3828c0f": "Subrosian",
     "8ec67c1b492ed9439df04bdddd1f2f5a4bbf6661": "Tarin",
     "3a15a793cc29c31271c1ea117141b9810a52a687": "X",
