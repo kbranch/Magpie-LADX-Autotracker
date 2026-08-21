@@ -85,12 +85,21 @@ class RetroGameboy:
         return self.readRam(address)[0]
 
     def readRom(self, address, size):
+        maxChunkSize = 1024*16
         readSize = 0
         romData = bytearray()
 
         while readSize < size:
-            chunkSize = min(size - readSize, 1024)
-            romData += self.readRomChunk(address + readSize, chunkSize)
+            chunkSize = min(size - readSize, maxChunkSize)
+
+            try:
+                romData += self.readRomChunk(address + readSize, chunkSize)
+            except TimeoutError:
+                print(f'Timeout reading ROM chunk at {hex(address + readSize)} of size {chunkSize}')
+                maxChunkSize = maxChunkSize // 2
+
+                continue
+
             readSize += chunkSize
 
         return romData
@@ -99,7 +108,7 @@ class RetroGameboy:
         command = "READ_ROM"
         
         self.send(f'{command} {hex(address)} {size}\n')
-        self.socket.settimeout(10)
+        self.socket.settimeout(1)
         response = self.socket.recv(size * 3 + len(command) + 1 + len(hex(address)) + 1)
         
         splits = response.decode().split(" ", 2)
