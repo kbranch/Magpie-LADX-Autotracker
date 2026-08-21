@@ -5,6 +5,9 @@ class RetroGameboy:
     socket = None
     address = None
     port = None
+
+    romCapableClients = ['MESEN-LADXR']
+
     def __init__(self, address="127.0.0.1", port=55355):
         self.address = address
         self.port = port
@@ -31,12 +34,18 @@ class RetroGameboy:
         self.socket.settimeout(1)
         response_str, addr = self.socket.recvfrom(16)
 
-        return response_str.rstrip()
+        return response_str.decode('ascii', errors='replace').rstrip()
 
     def findEmulator(self):
         try:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            return self.isConnected()
+            connected = self.isConnected()
+
+            if connected:
+                version = self.get_retroarch_version()
+                self.canReadRom = version in self.romCapableClients
+
+            return connected
         except:
             pass
 
@@ -74,3 +83,27 @@ class RetroGameboy:
 
     def readRamByte(self, address):
         return self.readRam(address)[0]
+
+    def readRom(self, address, size):
+        readSize = 0
+        romData = bytearray()
+
+        while readSize < size:
+            chunkSize = min(size - readSize, 1024)
+            romData += self.readRomChunk(address + readSize, chunkSize)
+            readSize += chunkSize
+
+        return romData
+
+    def readRomChunk(self, address, size):
+        command = "READ_ROM"
+        
+        self.send(f'{command} {hex(address)} {size}\n')
+        self.socket.settimeout(10)
+        response = self.socket.recv(size * 3 + len(command) + 1 + len(hex(address)) + 1)
+        
+        splits = response.decode().split(" ", 2)
+
+        assert(splits[0] == command)
+
+        return bytearray.fromhex(splits[2])
