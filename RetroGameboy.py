@@ -6,7 +6,7 @@ class RetroGameboy:
     address = None
     port = None
 
-    romCapableClients = ['MESEN-LADXR']
+    romCapableClients = ['MESEN-LADXR', '1.69.420']
 
     def __init__(self, address="127.0.0.1", port=55355):
         self.address = address
