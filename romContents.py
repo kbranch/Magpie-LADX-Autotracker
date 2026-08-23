@@ -68,10 +68,12 @@ def loadSettings(settingsString):
 gfxDict = {
     "3cfa04f141127bfa4c23591bbe6b23af09b26b34": "AgesGirl",
     "fc1251ab1000673d224d2d0e3a6759f00ace2a86": "Bowwow",
+    "5a6685a697508dbf0d35d8bbce92382170f00851": "Braixen",
     "4a58f3432ad9cbc2011817c3abf4dcd5fa73be15": "Bunny",
     "2e7ef7ef064ae9116631debd0fbd5f892faa462a": "GrandmaUlrira",
     "b5aeb6e2cd88a03fbc284787adc098c56c85f337": "Kirby",
     "2810e21f25a2028aab10f845dba336c4f6125c27": "Kris",
+    "94e9106a4d811a25c2012f2c9c652e401e9fbf33": "LuckwurstJoe",
     "9bf7512f17bf7b632abfbbfacc97c0962770dbbe": "Luigi",
     "2726558c2a536f305e32ba01a074071ca148f2e3": "Marin",
     "ae96c94db9ec82e08d9f7ab1f4efc9072e0b72ed": "MarinAlpha",
